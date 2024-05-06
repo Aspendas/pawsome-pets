@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Auth from './pages/Authentication';
+import Auth from './pages/authentication/Authentication';
 import { createBrowserRouter , RouterProvider} from 'react-router-dom';
 import Help from './pages/LoginHelp';
+import Home from './pages/home/Home';
 
 const router = createBrowserRouter([{
   path: '/',
@@ -15,7 +16,13 @@ const router = createBrowserRouter([{
 }, {
   path: '/help',
   element: <Help />
-}]);
+}, 
+{
+  path: '/home',
+  element: <Home />
+}
+]);
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
