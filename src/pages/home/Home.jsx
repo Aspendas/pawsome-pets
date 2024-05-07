@@ -26,7 +26,13 @@ function Home() {
         </div>
       </section>
       <hr />
-      <section></section>
+      <section className="pet-gallery">
+        <div className="pet-gallery-container">
+          <h2 className="pet-gallery-header">
+            Take a look at some of our pets
+          </h2>
+        </div>
+      </section>
     </div>
   );
 }
