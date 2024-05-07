@@ -7,7 +7,7 @@ function Home() {
   return (
     <div>
       <HomeNavigationBar></HomeNavigationBar>
-      <div className="home-content">
+      <section className="landing-content">
         <div className="landing-content">
           <div className="landing-content-container">
             <h1 className="landing-content-header">Welcome to Pawpals</h1>
@@ -24,7 +24,9 @@ function Home() {
             <img className="landing-image" src={PetPhoto} alt="Pet photo" />
           </div>
         </div>
-      </div>
+      </section>
+      <hr />
+      <section></section>
     </div>
   );
 }

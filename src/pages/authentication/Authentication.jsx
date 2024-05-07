@@ -6,7 +6,6 @@ export default function Auth() {
   const navigate = useNavigate();
 
   const navigateToHomepage = () => {
-    // Navigate to the '/about' route
     navigate("/home");
   };
 
