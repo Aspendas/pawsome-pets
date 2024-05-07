@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   max-width: 780px;
-  padding-left: 80px;
+  padding-left: 36px;
 }
 
 .landing-content-header {
@@ -35,8 +35,36 @@
 
 .landing-image {
   margin-top: 16px;
-  width: 400px;
-  height: 400px;
+  max-width: 400px;
   background-color: rgb(200, 210, 220);
   border-radius: 24px;
+}
+
+.btn {
+  border-radius: 12px;
+  border: none;
+  background-color: #d8d8d8;
+  color: #000000;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 135px;
+  padding: 16px 24px;
+}
+
+@media screen and (max-width: 800px) {
+  .landing-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .landing-content-container {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .landing-image {
+    margin-top: 32px;
+  }
 }
