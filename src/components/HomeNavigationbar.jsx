@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 
 import "./NavigationBar.css";
 
-const LoginNavigationBar = () => {
+const HomeNavigationBar = () => {
   return (
     <div className="navbar">
       <nav className="navbar-size">
         <ul className="nav-list">
           <li className="nav-item">
-            <Link to={"/"}>
+            <Link to={"/home"}>
               <PawIcon alt="Paw Icon" className="nav-icon" />
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/help" className="nav-link">
+            <Link to={"/help"} className="nav-link">
               Help
             </Link>
           </li>
@@ -25,4 +25,4 @@ const LoginNavigationBar = () => {
   );
 };
 
-export default LoginNavigationBar;
+export default HomeNavigationBar;
