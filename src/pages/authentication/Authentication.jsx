@@ -36,12 +36,12 @@ export default function Auth() {
                 placeholder="Password"
                 required
               />
-              <button className="btn" onClick={navigateToHomepage}>
+              <button className="auth-btn" onClick={navigateToHomepage}>
                 Login
               </button>
             </form>
             <p className="form-signin-subtext">
-              If you don't have an account{" "}
+              If you don't have an account
               <span className="fake-hyperlink">register</span>
             </p>
           </div>
