@@ -25,12 +25,13 @@ function Home() {
           </div>
         </div>
       </section>
-      <hr />
       <section className="pet-gallery">
         <div className="pet-gallery-container">
           <h2 className="pet-gallery-header">
             Take a look at some of our pets
           </h2>
+          <button className="btn find-more-pet">View more</button>
+          <div className="pet-listing-card"></div>
         </div>
       </section>
     </div>
