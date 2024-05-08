@@ -2,6 +2,7 @@ import React from "react";
 import HomeNavigationBar from "../../components/HomeNavigationbar";
 import "./home.css";
 import PetPhoto from "../../assets/pet-photo.png";
+import { ReactComponent as SiteLogo } from "../../assets/paw-solid.svg";
 
 function Home() {
   return (
@@ -34,6 +35,35 @@ function Home() {
           <div className="pet-listing-card"></div>
         </div>
       </section>
+      <footer className="footer-background">
+        <div className="footer-container">
+          <div className="footer-left">
+            <h3 className="footer-logo">
+              <SiteLogo />
+            </h3>
+            <p className="footer-text">
+              Pawpals is a platform that connects pet lovers with pets. We
+              believe that pets are family and that every pet deserves a loving
+              home.
+            </p>
+          </div>
+          <div className="footer-mid">
+            <h3>Site Navigation</h3>
+            <ul>
+              <li>Home</li>
+              <li>Find Pet</li>
+              <li>Find Home</li>
+              <li>Help</li>
+            </ul>
+          </div>
+          <div className="footer-right">
+            <h3 className="footer-header">Contact Us</h3>
+            <p className="footer-text">
+              Email: info@pawsomepets.com
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
