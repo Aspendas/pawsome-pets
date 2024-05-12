@@ -56,6 +56,7 @@ function Home() {
               <PetListingCard pet={pet} />
             </div>
           ))}
+
           {petsData.map((pet, index) => (
             <div key={index}>
               <PetListingCard pet={pet} />
