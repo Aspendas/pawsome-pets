@@ -6,6 +6,7 @@ import { ReactComponent as SiteLogo } from "../../assets/paw-solid.svg";
 import { getFirestore } from "firebase/firestore";
 import app from "../../config";
 import { collection, getDocs, orderBy, limit, query } from "firebase/firestore";
+import PetListingCard from "../../components/petListingCard/PetListingCard";
 
 const db = getFirestore(app);
 
@@ -49,11 +50,15 @@ function Home() {
             Take a look at some of our pets
           </h2>
           <button className="btn find-more-pet">View more</button>
-          <div className="pet-listing-card"></div>
+
           {petsData.map((pet, index) => (
             <div key={index}>
-              <p>Pet Name: {pet.description}</p>
-              <p>Pet Type: {pet.type}</p>
+              <PetListingCard pet={pet} />
+            </div>
+          ))}
+          {petsData.map((pet, index) => (
+            <div key={index}>
+              <PetListingCard pet={pet} />
             </div>
           ))}
         </div>
