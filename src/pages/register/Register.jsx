@@ -1,10 +1,10 @@
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import LoginNavigationBar from "../../components/LoginNavigationbar";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import "./Authentication.css";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import "./register.css";
 
-export default function Auth() {
+const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,28 +14,20 @@ export default function Auth() {
     navigate("/home");
   };
 
-  const navigateToRegpage = () => {
-    navigate("/register");
-  };
-
-  const navigateToPasspage = () => {
-    navigate("/pass");
-  };
-
-  const handleLogin = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     try {
       const auth = getAuth();
-      const userCredential = await signInWithEmailAndPassword(
+      const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      console.log("User signed in:", userCredential.user);
+      console.log("User signed up:", userCredential.user);
       navigateToHomepage();
     } catch (error) {
       setError(error.message);
-      console.error("Error signing in:", error.message);
+      console.error("Error signing up:", error.message);
     }
   };
 
@@ -43,14 +35,11 @@ export default function Auth() {
     <div className="background">
       <LoginNavigationBar />
       <div className="authentication">
-        <div className="authentication-container">
-          <div className="left-container">
-            <h1>Photo</h1>
-          </div>
-          <div className="right-container">
+        <div className="register-container">
+          <div className="container">
             <h1>Welcome to Pawsome Pets</h1>
-            <form className="form-signin" onSubmit={handleLogin}>
-              <p className="form-signin-text">Please login to proceed</p>
+            <form className="form-signin" onSubmit={handleSignUp}>
+              <p className="form-signin-text">Please Sign Up to proceed</p>
               <input
                 type="text"
                 className="form-control"
@@ -71,25 +60,15 @@ export default function Auth() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button className="auth-btn" type="submit">
-                Login
+                Sign Up
               </button>
             </form>
-            <p className="form-signin-subtext">
-              If you don't have an account <b />
-              <span onClick={navigateToRegpage} className="fake-hyperlink">
-                register
-              </span>
-            </p>
-            <p className="form-signin-subtext">
-              Want to change your <b />
-              <span onClick={navigateToPasspage} className="fake-hyperlink">
-                password
-              </span>
-              ?
-            </p>
+            {error && <p className="error-message">{error}</p>}
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Register;

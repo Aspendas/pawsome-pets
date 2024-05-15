@@ -50,13 +50,11 @@ function Home() {
             Take a look at some of our pets
           </h2>
           <button className="btn find-more-pet">View more</button>
-
           {petsData.map((pet, index) => (
             <div key={index}>
               <PetListingCard pet={pet} />
             </div>
           ))}
-
           {petsData.map((pet, index) => (
             <div key={index}>
               <PetListingCard pet={pet} />
