@@ -7,6 +7,7 @@ import Help from "./pages/help/Help";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Pass from "./pages/pass/Pass";
+import PetListing from "./pages/petListing/PetListing";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
     path: "/pass",
     element: <Pass />,
   },
+  {
+    path: "/find-pet",
+    element: <PetListing />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

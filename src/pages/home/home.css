@@ -1,3 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /*content*/
 
 .landing-content {
@@ -111,6 +122,7 @@
 
 .footer-background {
   background-color: #f8f8f8;
+  margin-top: auto;
 }
 
 .footer-container {

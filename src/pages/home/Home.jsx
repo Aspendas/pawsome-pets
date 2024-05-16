@@ -24,7 +24,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="home-container">
       <HomeNavigationBar></HomeNavigationBar>
       <section className="landing-content">
         <div className="landing-content">
@@ -50,6 +50,8 @@ function Home() {
             Take a look at some of our pets
           </h2>
           <button className="btn find-more-pet">View more</button>
+        </div>
+        <div className="pet-gallery-container">
           {petsData.map((pet, index) => (
             <div key={index}>
               <PetListingCard pet={pet} />
