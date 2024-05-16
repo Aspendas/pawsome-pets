@@ -7,12 +7,16 @@ import { getFirestore } from "firebase/firestore";
 import app from "../../config";
 import { collection, getDocs, orderBy, limit, query } from "firebase/firestore";
 import PetListingCard from "../../components/petListingCard/PetListingCard";
+import { useNavigate } from "react-router-dom";
 
 const db = getFirestore(app);
 
 function Home() {
   const [petsData, setPetsData] = useState([]);
-
+  const navigate = useNavigate();
+  const navigateToPetListing = () => {
+    navigate("/find-pet");
+  };
   useEffect(() => {
     const petsCollection = collection(db, "pets");
     const petsQuery = query(petsCollection, limit(4));
@@ -35,7 +39,7 @@ function Home() {
               share the joy of pet ownership with responsible families.
             </p>
             <div>
-              <button className="btn">Find Pet</button>{" "}
+              <button className="btn" onClick={navigateToPetListing}>Find Pet</button> {" "}
               <button className="btn">Find Home</button>
             </div>
           </div>

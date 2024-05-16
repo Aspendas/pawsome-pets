@@ -1,0 +1,21 @@
+.pet-listing-container {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.pet-listing-header {
+  font-size: 36px;
+  margin-bottom: 4px;
+  grid-column: 1/4;
+  color: black;
+}
+
+.pet-listing-text {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
