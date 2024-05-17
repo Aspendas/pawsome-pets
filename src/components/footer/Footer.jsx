@@ -10,7 +10,9 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-left">
           <h3 className="footer-logo">
-            <SiteLogo />
+            <Link to="/home" className="footer-link">
+              <SiteLogo />
+            </Link>
           </h3>
           <p className="footer-text">
             Pawpals is a platform that connects pet lovers with pets. We believe
@@ -21,7 +23,7 @@ const Footer = () => {
           <h3 className="footer-header">Site Navigation</h3>
           <ul>
             <li>
-              <Link to="/" className="footer-link">
+              <Link to="/home" className="footer-link">
                 Home
               </Link>
             </li>
