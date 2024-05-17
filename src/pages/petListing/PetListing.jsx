@@ -16,7 +16,9 @@ const PetListing = () => {
     const petsQuery = query(petsCollection, );
 
     getDocs(petsQuery).then((querySnapshot) => {
-      const data = querySnapshot.docs.map((doc) => doc.data());
+      const data = querySnapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
       setPetsData(data);
     });
   }, []);

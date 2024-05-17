@@ -9,6 +9,7 @@ import Register from "./pages/register/Register";
 import Pass from "./pages/pass/Pass";
 import PetListing from "./pages/petListing/PetListing";
 import FindHome from "./pages/findHome/FindHome";
+import FindPetDetail from './pages/findPetDetail/FindPetDetail';
 
 import "./index.css";
 
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/find-home",
     element: <FindHome />,
+  },
+  {
+    path: "/find-pet/:id",
+    element: <FindPetDetail />,
   },
   
 ]);

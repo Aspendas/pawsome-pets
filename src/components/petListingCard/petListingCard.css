@@ -11,6 +11,10 @@
   margin-bottom: 16px;
 }
 
+.pet-gallery-card-link {
+  text-decoration: none;
+}
+
 p {
   margin: 0;
 }

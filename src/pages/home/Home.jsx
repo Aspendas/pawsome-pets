@@ -13,6 +13,7 @@ const db = getFirestore(app);
 
 function Home() {
   const [petsData, setPetsData] = useState([]);
+
   const navigate = useNavigate();
 
   const navigateToPetListing = () => {
@@ -28,10 +29,13 @@ function Home() {
     const petsQuery = query(petsCollection, limit(4));
 
     getDocs(petsQuery).then((querySnapshot) => {
-      const data = querySnapshot.docs.map((doc) => doc.data());
+      const data = querySnapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
       setPetsData(data);
     });
   }, []);
+  console.log("data", petsData);
 
   return (
     <div className="home-container">
