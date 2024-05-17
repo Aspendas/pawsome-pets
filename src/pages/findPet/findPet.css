@@ -1,3 +1,17 @@
+.find-pet-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.pet-listing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
 .pet-listing-container {
   display: grid;
   max-width: 1200px;

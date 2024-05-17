@@ -7,7 +7,7 @@ import Help from "./pages/help/Help";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Pass from "./pages/pass/Pass";
-import PetListing from "./pages/petListing/PetListing";
+import PetListing from "./pages/findPet/FindPet";
 import FindHome from "./pages/findHome/FindHome";
 import FindPetDetail from './pages/findPetDetail/FindPetDetail';
 
