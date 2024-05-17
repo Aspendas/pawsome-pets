@@ -16,8 +16,7 @@ p {
 }
 
 .pet-img {
-  max-width: 264px;
-  max-height: 264px;
+  width: 100%;
   aspect-ratio: 1;
 }
 

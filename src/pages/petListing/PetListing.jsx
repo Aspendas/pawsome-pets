@@ -13,7 +13,7 @@ const PetListing = () => {
 
   useEffect(() => {
     const petsCollection = collection(db, "pets");
-    const petsQuery = query(petsCollection, limit(4));
+    const petsQuery = query(petsCollection, );
 
     getDocs(petsQuery).then((querySnapshot) => {
       const data = querySnapshot.docs.map((doc) => doc.data());

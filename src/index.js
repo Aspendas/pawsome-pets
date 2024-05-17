@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import Auth from "./pages/authentication/Authentication";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Auth from "./pages/authentication/Authentication";
 import Help from "./pages/help/Help";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Pass from "./pages/pass/Pass";
 import PetListing from "./pages/petListing/PetListing";
+import FindHome from "./pages/findHome/FindHome";
+
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +40,12 @@ const router = createBrowserRouter([
   {
     path: "/find-pet",
     element: <PetListing />,
-  }
+  }, 
+  {
+    path: "/find-home",
+    element: <FindHome />,
+  },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

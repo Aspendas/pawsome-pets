@@ -14,9 +14,15 @@ const db = getFirestore(app);
 function Home() {
   const [petsData, setPetsData] = useState([]);
   const navigate = useNavigate();
+
   const navigateToPetListing = () => {
     navigate("/find-pet");
   };
+
+  const navigateToFindHome = () => {
+    navigate("/find-home");
+  };
+
   useEffect(() => {
     const petsCollection = collection(db, "pets");
     const petsQuery = query(petsCollection, limit(4));
@@ -39,8 +45,12 @@ function Home() {
               share the joy of pet ownership with responsible families.
             </p>
             <div>
-              <button className="btn" onClick={navigateToPetListing}>Find Pet</button> {" "}
-              <button className="btn">Find Home</button>
+              <button className="btn" onClick={navigateToPetListing}>
+                Find Pet
+              </button>{" "}
+              <button className="btn" onClick={navigateToFindHome}>
+                Find Home
+              </button>
             </div>
           </div>
           <div>
@@ -49,18 +59,15 @@ function Home() {
         </div>
       </section>
       <section className="pet-gallery">
-        <div className="pet-gallery-container">
+        <div className="pet-gallery-header-container">
           <h2 className="pet-gallery-header">
             Take a look at some of our pets
           </h2>
-          <button className="btn find-more-pet">View more</button>
+          <button className="btn find-more-pet" onClick={navigateToPetListing}>
+            View more
+          </button>
         </div>
         <div className="pet-gallery-container">
-          {petsData.map((pet, index) => (
-            <div key={index}>
-              <PetListingCard pet={pet} />
-            </div>
-          ))}
           {petsData.map((pet, index) => (
             <div key={index}>
               <PetListingCard pet={pet} />

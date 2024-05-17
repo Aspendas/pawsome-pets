@@ -87,10 +87,18 @@
   max-width: 1250px;
 }
 
-.pet-gallery-container {
+.pet-gallery-header-container {
   display: grid;
   max-width: 1250px;
   grid-template-columns: repeat(8, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.pet-gallery-container {
+  display: grid;
+  max-width: 1250px;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 48px;
 }
