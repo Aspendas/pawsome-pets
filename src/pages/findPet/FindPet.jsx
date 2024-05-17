@@ -3,6 +3,7 @@ import { getFirestore } from "firebase/firestore";
 import app from "../../config";
 import PetListingCard from "../../components/petListingCard/PetListingCard";
 import { collection, getDocs, orderBy, limit, query } from "firebase/firestore";
+import Footer from "../../components/footer/Footer";
 import HomeNavigationBar from "../../components/HomeNavigationbar";
 import "./findPet.css";
 
@@ -33,6 +34,7 @@ const FindPet = () => {
           ))}
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
