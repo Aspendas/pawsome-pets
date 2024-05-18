@@ -1,0 +1,57 @@
+.find-home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.find-home-content-container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  text-align: left;
+  margin: 16px;
+}
+
+.find-home-header {
+  font-size: 36px;
+  margin-bottom: 4px;
+  color: black;
+}
+
+.find-home-text {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.create-pet-listing {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-pet-listing-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.create-pet-listing-label-text {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.create-pet-listing-text-input-field {
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 0.375rem;
+  border-width: 2px;
+  width: 100%;
+  max-width: 400px;
+}
