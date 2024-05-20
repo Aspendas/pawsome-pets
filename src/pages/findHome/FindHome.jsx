@@ -16,6 +16,26 @@ const FindHome = () => {
   const [gender, setGender] = useState("");
   const [description, setDescription] = useState("");
 
+
+  const handlePhotoChange = (files) => {
+    const file = files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.src = e.target.result;
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        const dataURL = canvas.toDataURL("image/jpeg");
+        console.log(dataURL);
+      };
+    };
+    reader.readAsDataURL(file);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,6 +53,7 @@ const FindHome = () => {
         adoptionFee,
         gender,
         description,
+        createdAt: new Date().toISOString(), // Add createdAt field with current timestamp
       });
       console.log(header, type, age, adoptionFee, gender, description);
       alert("Pet information added successfully");
@@ -55,15 +76,13 @@ const FindHome = () => {
         <p className="find-home-text"> Lorem ipsum dolor amet</p>
         <div className="create-pet-listing">
           <form onSubmit={handleSubmit}>
+
             <div className="create-pet-listing-input-container">
-              <label className="create-pet-listing-label-text">Header</label>
+              <label className="create-pet-listing-label-text">Photo</label>
               <input
-                className="create-pet-listing-text-input-field"
-                dir="ltr"
-                placeholder="Enter a header for pet listing e.g: Playful Bulldog"
-                type="text"
-                value={header}
-                onChange={(e) => setHeader(e.target.value)}
+                type="file"
+                accept="image/*"
+                onChange={(e) => handlePhotoChange(e.target.files)}
                 required
               />
             </div>
@@ -72,6 +91,7 @@ const FindHome = () => {
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value)}
+                className="create-pet-listing-select-field"
                 required
               >
                 <option value="">Select a type</option>
@@ -81,11 +101,12 @@ const FindHome = () => {
                 <option value="rabbit">Rabbit</option>
               </select>
             </div>
-            <div>
+            <div className="create-pet-listing-input-container">
               <label>Age</label>
               <select
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
+                className="create-pet-listing-select-field"
                 required
               >
                 <option value="">Select age</option>
@@ -94,20 +115,24 @@ const FindHome = () => {
                 <option value="senior">Senior</option>
               </select>
             </div>
-            <div>
-              <label>Adoption Fee</label>
+            <div className="create-pet-listing-input-container">
+              <label className="create-pet-listing-label-text">
+                Adoption Fee
+              </label>
               <input
-                type="text"
+                type="number"
                 value={adoptionFee}
                 onChange={(e) => setAdoptionFee(e.target.value)}
+                className="create-pet-listing-text-input-field"
                 required
               />
             </div>
-            <div>
+            <div className="create-pet-listing-input-container">
               <label>Gender</label>
               <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
+                className="create-pet-listing-select-field"
                 required
               >
                 <option value="">Select gender</option>
@@ -115,11 +140,14 @@ const FindHome = () => {
                 <option value="female">Female</option>
               </select>
             </div>
-            <div>
-              <label>Description</label>
-              <input
+            <div className="create-pet-listing-input-container">
+              <label className="create-pet-listing-label-text">
+                Description
+              </label>
+              <textarea
                 type="text"
                 value={description}
+                className="create-pet-listing-text-input-field"
                 onChange={(e) => setDescription(e.target.value)}
                 required
               />
