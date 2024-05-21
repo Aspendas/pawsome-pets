@@ -44,6 +44,13 @@
   margin-bottom: 4px;
 }
 
+.create-pet-listing-preview-image {
+  aspect-ratio: 1;
+  max-width: 400px;
+
+  margin-bottom: 16px;
+}
+
 .create-pet-listing-text-input-field {
   display: block;
   padding-top: 0.5rem;

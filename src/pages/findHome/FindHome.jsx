@@ -15,25 +15,12 @@ const FindHome = () => {
   const [adoptionFee, setAdoptionFee] = useState("");
   const [gender, setGender] = useState("");
   const [description, setDescription] = useState("");
-
+  const [photo, setPhoto] = useState(null);
 
   const handlePhotoChange = (files) => {
-    const file = files[0];
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const img = new Image();
-      img.src = e.target.result;
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0);
-        const dataURL = canvas.toDataURL("image/jpeg");
-        console.log(dataURL);
-      };
-    };
-    reader.readAsDataURL(file);
+    if (files.length > 0) {
+      setPhoto(files[0]);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -73,18 +60,28 @@ const FindHome = () => {
       <HomeNavigationBar></HomeNavigationBar>
       <div className="find-home-content-container">
         <h1 className="find-home-header">Find Home For Your Pet</h1>
-        <p className="find-home-text"> Lorem ipsum dolor amet</p>
+        <p className="find-home-text">
+          Fill the form to find a home for your beloved pet.
+        </p>
         <div className="create-pet-listing">
           <form onSubmit={handleSubmit}>
-
             <div className="create-pet-listing-input-container">
-              <label className="create-pet-listing-label-text">Photo</label>
+              <label className="create-pet-listing-label-text">
+                Photo of your pet
+              </label>
               <input
                 type="file"
                 accept="image/*"
                 onChange={(e) => handlePhotoChange(e.target.files)}
                 required
               />
+              {photo && (
+                <img
+                  src={URL.createObjectURL(photo)}
+                  alt="Selected Pet"
+                  className="create-pet-listing-preview-image"
+                />
+              )}
             </div>
             <div className="create-pet-listing-input-container">
               <label>Type</label>
