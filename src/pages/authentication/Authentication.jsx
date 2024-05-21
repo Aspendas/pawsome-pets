@@ -33,8 +33,8 @@ export default function Auth() {
       );
       console.log("User signed in:", userCredential.user);
       navigateToHomepage();
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
       console.error("Error signing in:", error.message);
     }
   };
@@ -81,7 +81,7 @@ export default function Auth() {
               </span>
             </p>
             <p className="form-signin-subtext">
-              Want to change your <b />
+              Forgot your <b />
               <span onClick={navigateToPasspage} className="fake-hyperlink">
                 password
               </span>

@@ -11,9 +11,21 @@ import PetListing from "./pages/findPet/FindPet";
 import FindHome from "./pages/findHome/FindHome";
 import FindPetDetail from './pages/findPetDetail/FindPetDetail';
 
+import { AuthProvider } from "./components/AuthProvider";
+import PrivateRoute from "./components/PrivateRoute";
+
 import "./index.css";
 
 const router = createBrowserRouter([
+  {
+    element: <PrivateRoute />,
+    children: [
+      {
+        path: "/home",
+        element: <Home />,
+      },
+    ],
+  },
   {
     path: "/",
     element: <Auth />,
@@ -25,10 +37,6 @@ const router = createBrowserRouter([
   {
     path: "/help",
     element: <Help />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
   },
   {
     path: "/register",
@@ -55,6 +63,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
