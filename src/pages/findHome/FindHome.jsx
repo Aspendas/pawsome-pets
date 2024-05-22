@@ -149,7 +149,9 @@ const FindHome = () => {
                 required
               />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="submit-btn">
+              Submit
+            </button>
           </form>
         </div>
       </div>
