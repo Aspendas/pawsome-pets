@@ -28,22 +28,6 @@ const FindHome = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Additional client-side validation (optional)
-    if (
-      !header ||
-      !type ||
-      !age ||
-      !adoptionFee ||
-      !gender ||
-      !description ||
-      !photo ||
-      !behaviour ||
-      !phoneNumber
-    ) {
-      alert("Please fill out all required fields.");
-      return;
-    }
-
     try {
       await addDoc(collection(db, "pets"), {
         header,
@@ -58,6 +42,7 @@ const FindHome = () => {
       });
       console.log(header, type, age, adoptionFee, gender, description);
       alert("Pet information added successfully");
+      setPhoto(null);
       setHeader("");
       setType("");
       setAge("");
@@ -98,6 +83,18 @@ const FindHome = () => {
                   className="create-pet-listing-preview-image"
                 />
               )}
+            </div>
+            <div className="create-pet-listing-input-container">
+              <label className="create-pet-listing-label-text">
+                Title of the pet listing
+              </label>
+              <input
+                type="text"
+                value={header}
+                onChange={(e) => setHeader(e.target.value)}
+                className="create-pet-listing-text-input-field"
+                required
+              />
             </div>
             <div className="create-pet-listing-input-container">
               <label>Type</label>
