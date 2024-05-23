@@ -54,11 +54,18 @@ const HomeNavigationBar = () => {
               )}
             </div>
           </li>
-          <li className="nav-item">
-            <Link to={"/help"} className="nav-link">
-              Help
-            </Link>
-          </li>
+          <div className="nav-bar-link-container">
+            <li className="nav-item">
+              <Link to={"/find-pet"} className="nav-link">
+                Find Pet
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/find-home"} className="nav-link">
+                Find Home
+              </Link>
+            </li>
+          </div>
         </ul>
       </nav>
     </div>
