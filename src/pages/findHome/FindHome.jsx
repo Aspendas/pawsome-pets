@@ -15,6 +15,7 @@ const FindHome = () => {
   const [adoptionFee, setAdoptionFee] = useState("");
   const [gender, setGender] = useState("");
   const [behaviour, setBehaviour] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState(null);
 
@@ -36,7 +37,8 @@ const FindHome = () => {
       !gender ||
       !description ||
       !photo ||
-      !behaviour
+      !behaviour ||
+      !phoneNumber
     ) {
       alert("Please fill out all required fields.");
       return;
@@ -50,6 +52,7 @@ const FindHome = () => {
         adoptionFee,
         gender,
         behaviour,
+        phoneNumber,
         description,
         createdAt: new Date().toISOString(), // Add createdAt field with current timestamp
       });
@@ -61,6 +64,7 @@ const FindHome = () => {
       setAdoptionFee("");
       setGender("");
       setBehaviour("");
+      setPhoneNumber("");
       setDescription("");
     } catch (error) {
       console.error("Error adding pet information: ", error);
@@ -184,6 +188,18 @@ const FindHome = () => {
                 <option value="energetic">Energetic</option>
                 <option value="independent">Independent</option>
               </select>
+            </div>
+            <div className="create-pet-listing-input-container">
+              <label className="create-pet-listing-label-text">
+                Phone Number
+              </label>
+              <input
+                type="number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="create-pet-listing-text-input-field"
+                required
+              />
             </div>
             <div className="create-pet-listing-input-container">
               <label className="create-pet-listing-label-text">
