@@ -35,7 +35,8 @@ export default function Auth() {
       navigateToHomepage();
     } catch (err) {
       setError(err.message);
-      console.error("Error signing in:", error.message);
+      alert("Invalid email or password");
+      console.log("Error signing in:", error.message);
     }
   };
 
