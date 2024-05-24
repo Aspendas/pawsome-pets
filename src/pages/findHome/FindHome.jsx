@@ -14,6 +14,8 @@ const FindHome = () => {
   const [age, setAge] = useState("");
   const [adoptionFee, setAdoptionFee] = useState("");
   const [gender, setGender] = useState("");
+  const [behaviour, setBehaviour] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState(null);
 
@@ -26,12 +28,6 @@ const FindHome = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Additional client-side validation (optional)
-    if (!header || !type || !age || !adoptionFee || !gender || !description) {
-      alert("Please fill out all required fields.");
-      return;
-    }
-
     try {
       await addDoc(collection(db, "pets"), {
         header,
@@ -39,16 +35,21 @@ const FindHome = () => {
         age,
         adoptionFee,
         gender,
+        behaviour,
+        phoneNumber,
         description,
         createdAt: new Date().toISOString(), // Add createdAt field with current timestamp
       });
       console.log(header, type, age, adoptionFee, gender, description);
       alert("Pet information added successfully");
+      setPhoto(null);
       setHeader("");
       setType("");
       setAge("");
       setAdoptionFee("");
       setGender("");
+      setBehaviour("");
+      setPhoneNumber("");
       setDescription("");
     } catch (error) {
       console.error("Error adding pet information: ", error);
@@ -84,6 +85,18 @@ const FindHome = () => {
               )}
             </div>
             <div className="create-pet-listing-input-container">
+              <label className="create-pet-listing-label-text">
+                Title of the pet listing
+              </label>
+              <input
+                type="text"
+                value={header}
+                onChange={(e) => setHeader(e.target.value)}
+                className="create-pet-listing-text-input-field"
+                required
+              />
+            </div>
+            <div className="create-pet-listing-input-container">
               <label>Type</label>
               <select
                 value={type}
@@ -96,6 +109,7 @@ const FindHome = () => {
                 <option value="cat">Cat</option>
                 <option value="bird">Bird</option>
                 <option value="rabbit">Rabbit</option>
+                <option value="hamster">Other</option>
               </select>
             </div>
             <div className="create-pet-listing-input-container">
@@ -107,9 +121,26 @@ const FindHome = () => {
                 required
               >
                 <option value="">Select age</option>
-                <option value="puppy">Puppy</option>
-                <option value="adult">Adult</option>
-                <option value="senior">Senior</option>
+                <option value="1 months old">1 months old</option>
+                <option value="2 months old">2 months old</option>
+                <option value="3 months old">3 months old</option>
+                <option value="4 months old">4 months old</option>
+                <option value="5 months old">5 months old</option>
+                <option value="6 months old">6 months old</option>
+                <option value="7 months old">7 months old</option>
+                <option value="8 months old">8 months old</option>
+                <option value="9 months old">9 months old</option>
+                <option value="10 months old">10 months old</option>
+                <option value="11 months old">11 months old</option>
+                <option value="1 year old">1 year old</option>
+                <option value="2 years old">2 years old</option>
+                <option value="3 years old">3 years old</option>
+                <option value="4 years old">4 years old</option>
+                <option value="5 years old">5 years old</option>
+                <option value="6 years old">6 years old</option>
+                <option value="7 years old">7 years old</option>
+                <option value="8 years old">8 years old</option>
+                <option value="9 years old">More than 8 years old</option>
               </select>
             </div>
             <div className="create-pet-listing-input-container">
@@ -138,6 +169,36 @@ const FindHome = () => {
               </select>
             </div>
             <div className="create-pet-listing-input-container">
+              <label>Behaviour</label>
+              <select
+                value={behaviour}
+                onChange={(e) => setBehaviour(e.target.value)}
+                className="create-pet-listing-select-field"
+                required
+              >
+                <option value="">Select behaviour</option>
+                <option value="male">Aggresive</option>
+                <option value="friendly">Friendly</option>
+                <option value="playful">Playful</option>
+                <option value="calm">Calm</option>
+                <option value="shy">Shy</option>
+                <option value="energetic">Energetic</option>
+                <option value="independent">Independent</option>
+              </select>
+            </div>
+            <div className="create-pet-listing-input-container">
+              <label className="create-pet-listing-label-text">
+                Phone Number
+              </label>
+              <input
+                type="number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="create-pet-listing-text-input-field"
+                required
+              />
+            </div>
+            <div className="create-pet-listing-input-container">
               <label className="create-pet-listing-label-text">
                 Description
               </label>
@@ -149,7 +210,9 @@ const FindHome = () => {
                 required
               />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="submit-btn">
+              Submit
+            </button>
           </form>
         </div>
       </div>

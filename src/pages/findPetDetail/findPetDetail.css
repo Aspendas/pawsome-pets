@@ -13,6 +13,7 @@
 .find-pet-detail-content-container {
   display: grid;
   max-width: 1250px;
+  width: 100%;
   grid-template-columns: 1fr 1fr; /* Change the grid-template-columns value */
   gap: 16px;
   margin: 0 auto;

@@ -53,6 +53,7 @@
 
 .create-pet-listing-text-input-field {
   display: block;
+  font-size: 18px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
@@ -78,10 +79,26 @@
   font-size: 16px;
   font-weight: 400;
   appearance: none;
-  outline: none;
   cursor: pointer;
 }
 
 .create-pet-listing-select-field option {
   padding: 0.5rem;
+}
+
+.submit-btn {
+  border-radius: 12px;
+  border: none;
+  background-color: #94b6e5;
+  color: #000000;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 135px;
+  padding: 16px 24px;
+}
+
+.submit-btn:hover {
+  background-color: #c0d4f0;
 }
