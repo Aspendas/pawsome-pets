@@ -2,11 +2,37 @@
   display: flex;
   margin: auto;
   flex-direction: column;
-
   height: 100vh;
   width: 1200px;
 }
 
 .help-header {
   font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.help-subheader {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.help-paragraph {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.help-paragraph .ordered-list {
+  list-style-type: decimal;
+}
+
+.help-paragraph .ordered-list li {
+  list-style-type: decimal;
+}
+.ordered-list {
+  list-style-type: decimal;
+}
+
+.help-subparagraph {
+  font-size: 20px;
+  margin-bottom: 16px;
 }
