@@ -34,8 +34,13 @@ export default function Auth() {
       console.log("User signed in:", userCredential.user);
       navigateToHomepage();
     } catch (error) {
-      setError(error.message);
+      if (error.code === "auth/user-not-found") {
+        setError("User does not exist. Please register.");
+      } else {
+        setError(error.message);
+      }
       console.error("Error signing in:", error.message);
+      alert("Invalid credentials. Please try again");
     }
   };
 
