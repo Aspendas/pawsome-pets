@@ -24,24 +24,24 @@ h1 {
 }
 
 .authentication-container {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-left: 16px;
   padding-right: 16px;
-  display: grid;
   margin: 0 auto;
   width: 1200px;
-  grid-template-columns: repeat(16, 1fr);
   grid-gap: 20px;
 }
 
-.left-container {
+.container {
   min-height: 520px;
   max-height: 80%;
-  grid-column: 1 / 9;
+  width: 500px;
   border-radius: 24px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(200, 210, 220);

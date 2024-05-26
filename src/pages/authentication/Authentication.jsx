@@ -2,7 +2,11 @@ import LoginNavigationBar from "../../components/LoginNavigationbar";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Authentication.css";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -18,10 +22,6 @@ export default function Auth() {
     navigate("/register");
   };
 
-  const navigateToPasspage = () => {
-    navigate("/pass");
-  };
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -33,10 +33,21 @@ export default function Auth() {
       );
       console.log("User signed in:", userCredential.user);
       navigateToHomepage();
-    } catch (err) {
-      setError(err.message);
-      alert("Invalid email or password");
-      console.log("Error signing in:", error.message);
+    } catch (error) {
+      setError(error.message);
+      console.error("Error signing in:", error.message);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    try {
+      const auth = getAuth();
+      await sendPasswordResetEmail(auth, email);
+      alert("Password reset email sent successfully");
+      // navigateToRegpage();
+    } catch (error) {
+      setError(error.message);
+      console.error("Error sending password reset email:", error.message);
     }
   };
 
@@ -45,10 +56,7 @@ export default function Auth() {
       <LoginNavigationBar />
       <div className="authentication">
         <div className="authentication-container">
-          <div className="left-container">
-            <h1>Photo</h1>
-          </div>
-          <div className="right-container">
+          <div className="container">
             <h1>Welcome to Pawsome Pets</h1>
             <form className="form-signin" onSubmit={handleLogin}>
               <p className="form-signin-text">Please login to proceed</p>
@@ -83,7 +91,7 @@ export default function Auth() {
             </p>
             <p className="form-signin-subtext">
               Forgot your <b />
-              <span onClick={navigateToPasspage} className="fake-hyperlink">
+              <span onClick={handlePasswordReset} className="fake-hyperlink">
                 password
               </span>
               ?

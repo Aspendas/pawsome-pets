@@ -23,6 +23,8 @@ const FindPet = () => {
       setPetsData(data);
     });
   }, []);
+
+  console.log("Pets Data", petsData);
   return (
     <div className="find-pet-container">
       <HomeNavigationBar></HomeNavigationBar>

@@ -14,6 +14,10 @@ const Register = () => {
     navigate("/home");
   };
 
+  const navigateToAuth = () => {
+    navigate("/");
+  };
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
@@ -62,6 +66,13 @@ const Register = () => {
               <button className="auth-btn" type="submit">
                 Sign Up
               </button>
+              <p className="form-signin-subtext">
+                If you don't have an account <b />
+                <span onClick={navigateToAuth} className="fake-hyperlink">
+                  register
+                </span>
+              </p>
+              <p className="form-signin-subtext unvisible"> Forgot Password</p>
             </form>
             {error && <p className="error-message">{error}</p>}
           </div>

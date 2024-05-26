@@ -16,20 +16,21 @@ const FindPetDetail = () => {
 
   useEffect(() => {
     const fetchPet = async () => {
-      const docRef = doc(db, "pets", id);
-      const docSnap = await getDoc(docRef);
+      if (id) {
+        const docRef = doc(db, "pets", id);
+        const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        setPet(docSnap.data());
-      } else {
-        console.log("Pet not found");
+        if (docSnap.exists()) {
+          setPet(docSnap.data());
+        } else {
+          console.log("Pet not found");
+        }
       }
     };
 
     fetchPet();
-    console.log("Pet", pet);
-  }, [id, pet]);
-
+  }, [id]);
+  console.log("Pet", pet);
   return (
     <div className="find-pet-detail">
       <HomeNavigationBar></HomeNavigationBar>

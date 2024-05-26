@@ -3,10 +3,17 @@ import HomeNavigationBar from "../../components/HomeNavigationbar";
 
 import "./findHome.css";
 import Footer from "../../components/footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 import app from "../../config";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getApp } from "firebase/app";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 const db = getFirestore(app);
+
+const firebaseApp = getApp();
+const storage = getStorage(firebaseApp);
 
 const FindHome = () => {
   const [header, setHeader] = useState("");
@@ -19,16 +26,38 @@ const FindHome = () => {
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState(null);
 
+  const navigate = useNavigate();
+
+  const navigateToPetListing = () => {
+    navigate("/find-pet");
+  };
+
   const handlePhotoChange = (files) => {
     if (files.length > 0) {
       setPhoto(files[0]);
     }
   };
 
+  const uploadPhoto = async () => {
+    const storageRef = ref(storage, `${photo.name}`);
+    let downloadURL = "";
+    if (photo) {
+      await uploadBytes(storageRef, photo).then((snapshot) => {
+        console.log("Uploaded a blob or file!");
+        return getDownloadURL(snapshot.ref).then((url) => {
+          console.log("File available at", url);
+          downloadURL = url;
+        });
+      });
+    }
+    return downloadURL;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      const imageUrl = await uploadPhoto();
       await addDoc(collection(db, "pets"), {
         header,
         type,
@@ -38,7 +67,9 @@ const FindHome = () => {
         behaviour,
         phoneNumber,
         description,
+        imageUrl,
         createdAt: new Date().toISOString(), // Add createdAt field with current timestamp
+        isActive: true,
       });
       console.log(header, type, age, adoptionFee, gender, description);
       alert("Pet information added successfully");
@@ -51,6 +82,7 @@ const FindHome = () => {
       setBehaviour("");
       setPhoneNumber("");
       setDescription("");
+      navigateToPetListing();
     } catch (error) {
       console.error("Error adding pet information: ", error);
     }
