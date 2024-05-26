@@ -3,6 +3,9 @@ import React from "react";
 import LoginNavigationBar from "../../components/LoginNavigationbar";
 import "./help.css";
 
+import HelpDog from "../../assets/helpdog.png";
+import HelpCat from "../../assets/helpcat.png";
+
 export default function Help() {
   return (
     <div>
@@ -16,42 +19,49 @@ export default function Help() {
           and password on the homepage.
         </p>
         <h2 className="help-subheader">Finding a home for your pet's clubs</h2>{" "}
-        <p className="help-paragraph help-subparagraph">
-          If you are looking to find a home for your pet's cubs, you can create
-          a listing on our web site. To create a listing, follow these steps:
-          <br></br>
-          <ol className="ordered-list">
-            <li>Click on the "Find Home" button on the homepage.</li>
-            <li>Upload a photo of your pet</li>
-            <li>Enter the title of your listing.</li>
-            <li>
-              Select the type, age, gender, behaviour of pet you are listing.
-            </li>
+        <div className="help-section">
+          <p className="help-paragraph help-subparagraph">
+            If you are looking to find a home for your pet's cubs, you can
+            create a listing on our web site. To create a listing, follow these
+            steps:
+            <br></br>
+            <ol className="ordered-list">
+              <li>Click on the "Find Home" button on the homepage.</li>
+              <li>Upload a photo of your pet</li>
+              <li>Enter the title of your listing.</li>
+              <li>
+                Select the type, age, gender, behaviour of pet you are listing.
+              </li>
 
-            <li>Enter the contact number for communication.</li>
-            <li>
-              Include a description of your cubs, including their age,
-              temperment, and vaccination status.
-            </li>
-            <li>
-              Once you have completed all of the required fields, click on the
-              "Submit" button.
-            </li>
-          </ol>
-        </p>
+              <li>Enter the contact number for communication.</li>
+              <li>
+                Include a description of your cubs, including their age,
+                temperment, and vaccination status.
+              </li>
+              <li>
+                Once you have completed all of the required fields, click on the
+                "Submit" button.
+              </li>
+            </ol>
+          </p>
+          <img className="help-image" src={HelpDog} alt="Pet photo" />
+        </div>
         <h2 className="help-subheader">Finding pet for your home</h2>{" "}
-        <p className="help-paragraph help-subparagraph">
-          If you are looking for a pet', you can search through listing on our
-          web site. To find pet, follow these steps:
-          <br></br>
-          <ol className="ordered-list">
-            <li>Click on the "Find Pet" button on the homepage.</li>
-            <li>Upload a photo of your pet</li>
-            <li>Navigate through various listings</li>
-            <li>Find suitable pet for yourself.</li>
-            <li>Contact with the pet owner using "Contact Information"</li>
-          </ol>
-        </p>
+        <div className="help-section">
+          <img className="help-image" src={HelpCat} alt="Pet photo" />
+          <p className="help-paragraph help-subparagraph">
+            If you are looking for a pet', you can search through listing on our
+            web site. To find pet, follow these steps:
+            <br></br>
+            <ol className="ordered-list">
+              <li>Click on the "Find Pet" button on the homepage.</li>
+              <li>Upload a photo of your pet</li>
+              <li>Navigate through various listings</li>
+              <li>Find suitable pet for yourself.</li>
+              <li>Contact with the pet owner using "Contact Information"</li>
+            </ol>
+          </p>
+        </div>
       </div>
     </div>
   );
