@@ -19,7 +19,7 @@ const PetListingCard = ({ pet }) => {
         <p className="card-heading-subtext">
           {pet.gender} - {pet.age}
         </p>
-        <p className="card-price">{pet.adoptionFee}$</p>
+        <p className="card-price">{pet.header}</p>
       </div>
     </Link>
   );

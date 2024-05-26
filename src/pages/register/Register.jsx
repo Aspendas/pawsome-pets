@@ -67,9 +67,9 @@ const Register = () => {
                 Sign Up
               </button>
               <p className="form-signin-subtext">
-                If you don't have an account <b />
+                If you already have an account <b />
                 <span onClick={navigateToAuth} className="fake-hyperlink">
-                  register
+                  login
                 </span>
               </p>
               <p className="form-signin-subtext unvisible"> Forgot Password</p>

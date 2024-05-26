@@ -46,9 +46,6 @@ const FindPetDetail = () => {
           <p className="pet-informations-subtext">
             Behaviour: {pet?.behaviour}
           </p>
-          <p className="pet-informations-subtext">
-            Adoption Fee: {pet?.adoptionFee}
-          </p>
           <div className="contact-information-box">
             Contact Information <br />
             {pet?.phoneNumber ?? "05432104470"}
