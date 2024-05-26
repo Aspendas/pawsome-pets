@@ -10,6 +10,7 @@ import Pass from "./pages/pass/Pass";
 import PetListing from "./pages/findPet/FindPet";
 import FindHome from "./pages/findHome/FindHome";
 import FindPetDetail from './pages/findPetDetail/FindPetDetail';
+import UserListings from './pages/userListings/UserListings';
 
 import { AuthProvider } from "./components/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute";
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: "/find-pet/:id",
     element: <FindPetDetail />,
+  },
+  {
+    path: "user-listings",
+    element: <UserListings />,
   },
   
 ]);

@@ -39,3 +39,27 @@ p {
   font-weight: 600;
   color: #00171f;
 }
+
+.btn-active {
+  background-color: #24ed38;
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.btn-inactive {
+  background-color: red;
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}

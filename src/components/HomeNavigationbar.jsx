@@ -56,6 +56,11 @@ const HomeNavigationBar = () => {
           </li>
           <div className="nav-bar-link-container">
             <li className="nav-item">
+              <Link to={"/user-listings"} className="nav-link">
+                My Listings
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link to={"/find-pet"} className="nav-link">
                 Find Pet
               </Link>

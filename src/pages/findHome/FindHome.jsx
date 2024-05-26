@@ -10,6 +10,8 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+import { getAuth } from "firebase/auth";
+
 const db = getFirestore(app);
 
 const firebaseApp = getApp();
@@ -24,6 +26,11 @@ const FindHome = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState(null);
+
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const auth = getAuth(app);
+  const user = auth.currentUser;
+  const userId = user ? user.uid : null;
 
   const navigate = useNavigate();
 
@@ -56,6 +63,7 @@ const FindHome = () => {
     e.preventDefault();
 
     try {
+      setButtonClicked(true);
       const imageUrl = await uploadPhoto();
       await addDoc(collection(db, "pets"), {
         header,
@@ -68,6 +76,7 @@ const FindHome = () => {
         imageUrl,
         createdAt: new Date().toISOString(), // Add createdAt field with current timestamp
         isActive: true,
+        userId,
       });
       console.log(header, type, age, gender, description);
       alert("Pet information added successfully");
@@ -80,6 +89,7 @@ const FindHome = () => {
       setPhoneNumber("");
       setDescription("");
       navigateToPetListing();
+      setButtonClicked(false);
     } catch (error) {
       console.error("Error adding pet information: ", error);
     }
@@ -228,7 +238,7 @@ const FindHome = () => {
               />
             </div>
             <button type="submit" className="submit-btn">
-              Submit
+              {buttonClicked ? "Submitting" : "Submit"}
             </button>
           </form>
         </div>

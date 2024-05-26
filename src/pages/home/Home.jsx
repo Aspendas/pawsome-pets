@@ -4,7 +4,14 @@ import "./home.css";
 import PetPhoto from "../../assets/pet-photo.png";
 import { getFirestore } from "firebase/firestore";
 import app from "../../config";
-import { collection, getDocs, orderBy, limit, query } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  orderBy,
+  where,
+  limit,
+  query,
+} from "firebase/firestore";
 import PetListingCard from "../../components/petListingCard/PetListingCard";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
@@ -24,9 +31,15 @@ function Home() {
     navigate("/find-home");
   };
 
+  console.log("Pets Data", petsData);
   useEffect(() => {
     const petsCollection = collection(db, "pets");
-    const petsQuery = query(petsCollection, limit(4));
+    const petsQuery = query(
+      petsCollection,
+      where("isActive", "==", true),
+      orderBy("createdAt", "desc"),
+      limit(4)
+    );
 
     getDocs(petsQuery).then((querySnapshot) => {
       const data = querySnapshot.docs.map((doc) => {
