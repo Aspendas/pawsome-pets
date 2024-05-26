@@ -19,7 +19,6 @@ const FindHome = () => {
   const [header, setHeader] = useState("");
   const [type, setType] = useState("");
   const [age, setAge] = useState("");
-  const [adoptionFee, setAdoptionFee] = useState("");
   const [gender, setGender] = useState("");
   const [behaviour, setBehaviour] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -62,7 +61,6 @@ const FindHome = () => {
         header,
         type,
         age,
-        adoptionFee,
         gender,
         behaviour,
         phoneNumber,
@@ -71,13 +69,12 @@ const FindHome = () => {
         createdAt: new Date().toISOString(), // Add createdAt field with current timestamp
         isActive: true,
       });
-      console.log(header, type, age, adoptionFee, gender, description);
+      console.log(header, type, age, gender, description);
       alert("Pet information added successfully");
       setPhoto(null);
       setHeader("");
       setType("");
       setAge("");
-      setAdoptionFee("");
       setGender("");
       setBehaviour("");
       setPhoneNumber("");
@@ -174,18 +171,6 @@ const FindHome = () => {
                 <option value="8 years old">8 years old</option>
                 <option value="9 years old">More than 8 years old</option>
               </select>
-            </div>
-            <div className="create-pet-listing-input-container">
-              <label className="create-pet-listing-label-text">
-                Adoption Fee
-              </label>
-              <input
-                type="number"
-                value={adoptionFee}
-                onChange={(e) => setAdoptionFee(e.target.value)}
-                className="create-pet-listing-text-input-field"
-                required
-              />
             </div>
             <div className="create-pet-listing-input-container">
               <label>Gender</label>
